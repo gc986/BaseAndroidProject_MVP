@@ -1,0 +1,2 @@
+include ':app', ":models", ":dataprovider"
+rootProject.name='BaseAndroidProject_MVP'
