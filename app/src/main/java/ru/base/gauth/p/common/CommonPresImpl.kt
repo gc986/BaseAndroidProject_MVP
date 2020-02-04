@@ -13,6 +13,8 @@ abstract class CommonPresImpl<T : CommonView> : CommonPres<T> {
 
     abstract fun init()
 
+    protected fun getV() = view
+
     override fun setup(view: T) {
         this.view = view
         init()
