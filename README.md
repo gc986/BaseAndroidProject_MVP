@@ -1,9 +1,9 @@
 <h1>Base MVP Project</h1>
 
-MVP
-RX
-Retrofit
-Dagger
-SubProject
-Firebase
+MVP<br>
+RX<br>
+Retrofit<br>
+Dagger<br>
+SubProject<br>
+Firebase<br>
 Butterknife
