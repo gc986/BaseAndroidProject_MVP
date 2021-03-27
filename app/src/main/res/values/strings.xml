@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Base Android project with MVP</string>
+    <string name="hello_world">Hello my world!, from presenter</string>
 </resources>

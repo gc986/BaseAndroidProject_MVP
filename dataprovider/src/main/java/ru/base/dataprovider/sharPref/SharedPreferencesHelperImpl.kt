@@ -6,13 +6,11 @@ import io.reactivex.Observable
 
 class SharedPreferencesHelperImpl(context: Context) : SharedPreferencesHelper {
 
-    val PREF_NAME_SHARED_PREF_M_POS = "PREF_NAME_SHARED_PREF_M_POS"
-    val context: Context
-    val mSettings: SharedPreferences = context.getSharedPreferences(PREF_NAME_SHARED_PREF_M_POS, Context.MODE_PRIVATE)
-
-    init {
-        this.context = context
+    companion object{
+        private const val PREF_NAME_SHARED_PREF_M_POS = "PREF_NAME_SHARED_PREF_M_POS"
     }
+
+    private val mSettings: SharedPreferences = context.getSharedPreferences(PREF_NAME_SHARED_PREF_M_POS, Context.MODE_PRIVATE)
 
     //body
     override fun putSPString(name: String, value: String): Observable<String> {
@@ -65,7 +63,8 @@ class SharedPreferencesHelperImpl(context: Context) : SharedPreferencesHelper {
     override fun getSPString(name: String): Observable<String> {
         return Observable.create {
             //            val mSettings: SharedPreferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
-            it.onNext(mSettings.getString(name, ""))
+            val str = mSettings.getString(name, "")
+            it.onNext(str?:"")
             it.onComplete()
         }
     }
