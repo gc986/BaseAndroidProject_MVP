@@ -6,5 +6,5 @@ Retrofit<br>
 Dagger<br>
 SubProject<br>
 Firebase<br>
-Butterknife
-Moxy
+Butterknife<br>
+Moxy<br>
