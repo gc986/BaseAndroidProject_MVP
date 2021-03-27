@@ -11,7 +11,7 @@ import ru.base.gauth.di.v.DaggerDIPres
 class BaseAndroidProjectMVP: Application() {
 
     companion object{
-        lateinit var instance: ru.base.gauth.BaseAndroidProjectMVP
+        lateinit var instance: BaseAndroidProjectMVP
         internal lateinit var diData: DIData
         internal lateinit var diPres: DIPres
 
@@ -19,18 +19,18 @@ class BaseAndroidProjectMVP: Application() {
     }
 
     init {
-        ru.base.gauth.BaseAndroidProjectMVP.Companion.instance = this
-        ru.base.gauth.BaseAndroidProjectMVP.Companion.diData = buildData()
-        ru.base.gauth.BaseAndroidProjectMVP.Companion.diPres = buildPres()
+        instance = this
+        diData = buildData()
+        diPres = buildPres()
     }
 
     private fun buildData(): DIData {
-        return ru.base.gauth.di.p.DaggerDIData.builder()
+        return DaggerDIData.builder()
             .dIDataModule(DIDataModule(this)).build()
     }
 
     private fun buildPres(): DIPres {
-        return ru.base.gauth.di.v.DaggerDIPres.builder()
+        return DaggerDIPres.builder()
             .dIPresModule(DIPresModule()).build()
     }
 

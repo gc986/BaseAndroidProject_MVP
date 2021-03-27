@@ -1,8 +1,7 @@
 package ru.base.gauth.p.common
 
-interface CommonPres<T : CommonView>{
+interface CommonPres<T : CommonView> {
 
-    fun setup(view: T)
     fun onDestroy()
     fun onPause()
     fun onStart()

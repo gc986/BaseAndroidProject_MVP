@@ -1,24 +1,20 @@
 package ru.base.gauth.p.common
 
+import androidx.annotation.StringRes
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import moxy.MvpPresenter
+import ru.base.gauth.BaseAndroidProjectMVP
 import ru.base.gauth.m.DataCenter
 import javax.inject.Inject
 
-abstract class CommonPresImpl<T : CommonView> : CommonPres<T> {
+abstract class CommonPresImpl<T : CommonView> : CommonPres<T>, MvpPresenter<T>() {
 
-    private var view: T? = null
     protected val unsubscribe = CompositeDisposable()
-    @Inject lateinit var dataCenter: DataCenter
+    @Inject
+    lateinit var dataCenter: DataCenter
 
     abstract fun init()
-
-    protected fun getV() = view
-
-    override fun setup(view: T) {
-        this.view = view
-        init()
-    }
 
     override fun onDestroy() {
         unsubscribe.dispose()
@@ -35,5 +31,10 @@ abstract class CommonPresImpl<T : CommonView> : CommonPres<T> {
     protected fun getNet() = dataCenter.getNetProvider()
 
     protected fun getSP() = dataCenter.getSharedPref()
+
+    fun getString(@StringRes resId: Int) = BaseAndroidProjectMVP.instance.getString(resId)
+
+    fun getString(@StringRes resId: Int, vararg values: Any) =
+        BaseAndroidProjectMVP.instance.getString(resId, *values)
 
 }

@@ -1,4 +1,6 @@
 package ru.base.gauth.p.common
 
-interface CommonView {
+import moxy.MvpView
+
+interface CommonView : MvpView {
 }

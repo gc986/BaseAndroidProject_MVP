@@ -71,6 +71,12 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.0'
     kapt 'com.jakewharton:butterknife-compiler:10.2.0'
 
+    // Moxy
+    implementation "com.github.moxy-community:moxy:2.1.2"
+    kapt "com.github.moxy-community:moxy-compiler:2.1.2"
+    implementation "com.github.moxy-community:moxy-androidx:2.1.2"
+    implementation "com.github.moxy-community:moxy-ktx:2.1.2"
+
     implementation project(path: ':dataprovider')
     implementation project(path: ':models')
 

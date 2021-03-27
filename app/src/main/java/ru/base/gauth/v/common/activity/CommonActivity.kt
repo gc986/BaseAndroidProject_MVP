@@ -2,32 +2,24 @@ package ru.base.gauth.v.common.activity
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
+import moxy.MvpAppCompatActivity
 import ru.base.gauth.v.common.Dialogs
 import ru.gc986.logs.Logs
-import javax.inject.Inject
 
-abstract class CommonActivity<T : Any> : AppCompatActivity(), CommonActivityView {
-
-    @Inject
-    lateinit var pres: T
-
-    abstract override @LayoutRes fun getLayoutId(): Int
+abstract class CommonActivity(@LayoutRes layoutId: Int) : MvpAppCompatActivity(layoutId),
+    CommonActivityView {
 
     private val logs: Logs = Logs()
     private val dialogs: Dialogs = Dialogs(this)
 
-    fun getP(): T = this.pres
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
 
         init()
         initView()
     }
 
-    abstract protected fun initView()
-    abstract protected fun init()
+    protected abstract fun initView()
+    protected abstract fun init()
 
 }

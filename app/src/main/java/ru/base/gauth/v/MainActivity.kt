@@ -1,24 +1,29 @@
 package ru.base.gauth.v
 
 import butterknife.ButterKnife
+import kotlinx.android.synthetic.main.activity_main.*
+import moxy.ktx.moxyPresenter
 import ru.base.gauth.BaseAndroidProjectMVP
 import ru.base.gauth.R
 import ru.base.gauth.p.main.MainPres
 import ru.base.gauth.p.main.MainView
 import ru.base.gauth.v.common.activity.CommonActivity
 
-class MainActivity : CommonActivity<MainPres>(), MainView {
+class MainActivity : CommonActivity(R.layout.activity_main), MainView {
 
-    override fun getLayoutId(): Int = R.layout.activity_main
+    private val presenter by moxyPresenter { MainPres() }
 
     override fun init() {
-        ButterKnife.bind(this)
         BaseAndroidProjectMVP.diPres.inject(this)
-        getP().setup(this)
+        ButterKnife.bind(this)
     }
 
     override fun initView() {
+        presenter.activityOnLoaded()
+    }
 
+    override fun onShowMessage(message: String) {
+        textView.text = message
     }
 
 }
