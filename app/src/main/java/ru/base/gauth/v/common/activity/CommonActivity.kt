@@ -21,5 +21,6 @@ abstract class CommonActivity(@LayoutRes layoutId: Int) : MvpAppCompatActivity(l
 
     protected abstract fun initView()
     protected abstract fun init()
+    protected fun getDialogs() = dialogs
 
 }

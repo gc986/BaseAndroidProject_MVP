@@ -1,15 +1,12 @@
 package ru.base.gauth.v.common.fragment
 
 import androidx.fragment.app.Fragment
+import moxy.MvpAppCompatFragment
 import ru.gc986.logs.Logs
 import javax.inject.Inject
 
-abstract class CommonFragment<T : Any> : Fragment(), CommonFragmentView {
+abstract class CommonFragment(fragmentId: Int) : MvpAppCompatFragment(fragmentId), CommonFragmentView {
 
-    @Inject
-    lateinit var pres: T
     var logs: Logs = Logs()
-
-    abstract override fun getLayoutId(): Int
 
 }

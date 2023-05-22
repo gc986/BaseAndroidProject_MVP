@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Base Android project with MVP</string>
-    <string name="hello_world">Hello my world!, from presenter</string>
+    <string name="hello_world">Привет из презентера</string>
+    <string name="first_fragment">Первый фрагмент</string>
+    <string name="second_fragment">Второй фрагмент</string>
+    <string name="exit_from_app">Выйти из приложения</string>
+    <string name="to_back">Назад</string>
 </resources>

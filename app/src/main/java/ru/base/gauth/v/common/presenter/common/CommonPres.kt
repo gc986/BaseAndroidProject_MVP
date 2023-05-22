@@ -1,4 +1,4 @@
-package ru.base.gauth.p.common
+package ru.base.gauth.v.common.presenter.common
 
 interface CommonPres<T : CommonView> {
 

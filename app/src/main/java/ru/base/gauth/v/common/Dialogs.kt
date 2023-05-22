@@ -2,10 +2,12 @@ package ru.base.gauth.v.common
 
 import android.app.Activity
 import android.content.Context
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import ru.base.gauth.BaseAndroidProjectMVP
 
-class Dialogs (val context: Activity) {
+class Dialogs (private val context: Activity) {
 
     private fun getString(@StringRes resId: Int) = context.getString(resId)
 
@@ -18,5 +20,7 @@ class Dialogs (val context: Activity) {
         val alert = builder.create()
         alert.show()
     }
+
+    fun showToast(text: String) = Toast.makeText(BaseAndroidProjectMVP.instance, text, Toast.LENGTH_LONG)
 
 }

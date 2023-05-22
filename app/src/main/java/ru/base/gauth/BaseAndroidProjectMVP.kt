@@ -1,6 +1,7 @@
 package ru.base.gauth
 
 import android.app.Application
+import com.github.terrakok.cicerone.Cicerone
 import ru.base.gauth.di.p.DIData
 import ru.base.gauth.di.p.DIDataModule
 import ru.base.gauth.di.p.DaggerDIData
@@ -23,6 +24,10 @@ class BaseAndroidProjectMVP: Application() {
         diData = buildData()
         diPres = buildPres()
     }
+
+    private val cicerone = Cicerone.create()
+    val router get() = cicerone.router
+    val navigateHolder get() = cicerone.getNavigatorHolder()
 
     private fun buildData(): DIData {
         return DaggerDIData.builder()

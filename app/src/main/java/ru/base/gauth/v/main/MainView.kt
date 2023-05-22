@@ -1,7 +1,7 @@
-package ru.base.gauth.p.main
+package ru.base.gauth.v.main
 
 import moxy.viewstate.strategy.alias.AddToEndSingle
-import ru.base.gauth.p.common.CommonView
+import ru.base.gauth.v.common.presenter.common.CommonView
 
 interface MainView: CommonView {
 

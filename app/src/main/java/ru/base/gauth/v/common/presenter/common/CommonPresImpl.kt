@@ -1,4 +1,4 @@
-package ru.base.gauth.p.common
+package ru.base.gauth.v.common.presenter.common
 
 import androidx.annotation.StringRes
 import io.reactivex.disposables.CompositeDisposable
@@ -10,11 +10,14 @@ import javax.inject.Inject
 
 abstract class CommonPresImpl<T : CommonView> : CommonPres<T>, MvpPresenter<T>() {
 
-    protected val unsubscribe = CompositeDisposable()
+    private val unsubscribe = CompositeDisposable()
+
     @Inject
     lateinit var dataCenter: DataCenter
 
-    abstract fun init()
+    protected val router = BaseAndroidProjectMVP.instance.router
+
+    protected abstract fun init()
 
     override fun onDestroy() {
         unsubscribe.dispose()

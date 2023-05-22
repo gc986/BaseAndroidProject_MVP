@@ -1,7 +1,7 @@
 package ru.base.gauth.di.v
 
 import dagger.Component
-import ru.base.gauth.v.MainActivity
+import ru.base.gauth.v.main.MainActivity
 import javax.inject.Singleton
 
 @Singleton

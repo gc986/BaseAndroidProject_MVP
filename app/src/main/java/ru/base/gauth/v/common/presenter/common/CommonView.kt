@@ -1,4 +1,4 @@
-package ru.base.gauth.p.common
+package ru.base.gauth.v.common.presenter.common
 
 import moxy.MvpView
 
